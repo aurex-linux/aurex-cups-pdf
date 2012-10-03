@@ -1,0 +1,13 @@
+Source: aurex-cups-pdf
+Section: admin
+Priority: optional
+Maintainer: Luis Antonio Garcia Gisbert <luisgg@gmail.com>
+Build-Depends: debhelper (>= 7.0)
+Standards-Version: 3.8.4
+
+Package: aurex-cups-pdf
+Architecture: all
+Depends: ${misc:Depends}, cups-pdf, cups-client
+Description: create cups-pdf generic printer
+ This package forces creation of cups-pdf generic printer
+ after installation of cups-pdf package
