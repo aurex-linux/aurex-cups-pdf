@@ -1,3 +1,9 @@
+aurex-cups-pdf (0.3) precise; urgency=low
+
+  * Minor fixes
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 04 Oct 2012 01:35:48 +0200
+
 aurex-cups-pdf (0.2) precise; urgency=low
 
   * Install an upstart script for "deferred" activation
