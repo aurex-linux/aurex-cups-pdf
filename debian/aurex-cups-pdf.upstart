@@ -1,0 +1,10 @@
+# enable cups-pdf printer
+#
+
+description     "enable cups-pdf printer"
+
+start on started cups
+
+task
+exec aurex-cups-pdf enable
+

@@ -19,9 +19,7 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-	PRINTER_NAME="Generic-CUPS-PDF-printer"
-	# remove old versions
-	lpadmin -x "$PRINTER_NAME" || true
+	aurex-cups-pdf purge
     ;;
 
     failed-upgrade)

@@ -7,7 +7,7 @@ Standards-Version: 3.8.4
 
 Package: aurex-cups-pdf
 Architecture: all
-Depends: ${misc:Depends}, cups-pdf, cups-client
+Depends: ${misc:Depends}, cups-pdf, cups-client, cups
 Description: create cups-pdf generic printer
  This package forces creation of cups-pdf generic printer
  after installation of cups-pdf package

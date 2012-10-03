@@ -1,0 +1,45 @@
+#!/bin/sh
+
+usage(){
+	echo "Usage: $(basename "$0")  [--force] enable|disable|purge" >&1
+	exit 1
+}
+
+cups_pdf_remove (){
+	lpadmin -x "$PRINTER_NAME" || true
+}
+
+if [ "$1" = "--force" ] ; then
+	FORCE="Y"
+	shift
+fi
+
+FLAG_FILE="/var/lib/aurex-cups-pdf/aurex-cups-pdf.done"
+PRINTER_NAME="Generic-CUPS-PDF-printer"
+PRINTER_URI="cups-pdf:/"
+PRINTER_PPD="lsb/usr/cups-pdf/CUPS-PDF.ppd"
+
+if [ "$1" = "purge" ] ; then
+	cups_pdf_remove
+	rm -f "$FLAG_FILE"
+elif [ "$FORCE" -o ! -e "$FLAG_FILE" ] && pidof cupsd >/dev/null ; then
+	case "$1" in
+		enable)
+			# remove old versions
+			cups_pdf_remove
+			# generate the printer
+			if lpadmin -p "$PRINTER_NAME" -E -v "$PRINTER_URI" -m "$PRINTER_PPD" >/dev/null 2>/dev/null ; then
+				touch "$FLAG_FILE"
+			fi
+			;;
+		disable)
+			cups_pdf_remove
+			touch "$FLAG_FILE"
+			;;
+    		*)
+			usage
+			;;
+	esac
+fi
+
+exit 0
