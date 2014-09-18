@@ -1,3 +1,9 @@
+aurex-cups-pdf (0.4) trusty; urgency=medium
+
+  * Rebuild for aurex 14.04 trusty
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 19 Sep 2014 00:58:25 +0200
+
 aurex-cups-pdf (0.3) precise; urgency=low
 
   * Minor fixes
